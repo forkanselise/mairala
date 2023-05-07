@@ -5,10 +5,10 @@
     <button (click)="openDialog()" mat-raised-button>Add Video Info</button>
   </div>
   <div style="padding-left: 20px;" fxFlex="100" fxLayoutAlign="start center" fxLayout="row wrap" fxLayoutGap="16px"  >
-    <div *ngFor="let video of videoSource index as i" fxLayout="column" fxFlex="23">
-      <div>{{i+1}}.Title</div>
+    <div *ngFor="let video of myVideos index as i" fxLayout="column" fxFlex="23">
+      <div>{{i+1}}.{{video.Title}}</div>
       <video style="padding-bottom: 20px;" fxFlex="100" fxFlex.lt-md="85"  controls (canplay)="pauseVideo(videoplayer)" #videoPlayer>
-        <source src="{{video.Url}}" type="video/mp4">
+        <source src="{{video.VideoUrl}}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>

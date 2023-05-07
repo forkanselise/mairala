@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { CommonService } from '../Service/common.service';
 
 @Component({
   selector: 'app-dialogbox',
@@ -17,7 +18,8 @@ export class DialogboxComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<DialogboxComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class DialogboxComponent implements OnInit {
     // alert("Note added to local storage Successfully");
     // this.local.saveData(this.note.value as Note);
     console.log(this.videoInfo.value)
+    this.commonService.postData(this.videoInfo.value).subscribe();
     this.dialogRef.close();
   }
 

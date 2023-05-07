@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { CommonService } from './Service/common.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,10 @@ export class AppComponent {
   title = 'mairala';
 
   constructor(
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private commonService: CommonService
   ){
+    this.dataLoad();
   }
 
   name = 'Video events';
@@ -46,6 +49,8 @@ export class AppComponent {
     }
   ]
 
+myVideos: any;
+
 @ViewChild('videoPlayer') videoplayer: any;
 public startedPlay:boolean = false;
 public show:boolean = false;
@@ -70,8 +75,21 @@ closebutton(videoplayer : any){
   this.show = !this.show;
   videoplayer.nativeElement.play();
 }
+
+dataLoad(){
+  this.commonService.getData().subscribe(res => {
+    this.myVideos = res;
+
+    console.log(this.myVideos);
+  })
+}
+
 openDialog() {
-  this.dialog.open(DialogboxComponent)
+  const dialogRef = this.dialog.open(DialogboxComponent)
+
+  dialogRef.afterClosed().subscribe(()=>{
+    this.dataLoad();
+  })
 }
 
 
