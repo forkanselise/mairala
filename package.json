@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@videogular/ngx-videogular": "^7.0.1",
+    "angular-media-player": "^0.5.8",
+    "ng-image-video-gallery": "^2.8.5",
+    "ng-video": "^1.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

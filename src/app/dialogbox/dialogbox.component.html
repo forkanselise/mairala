@@ -1,0 +1,12 @@
+<div style="padding-bottom: 16px;">Add video info</div>
+<div fxLayout="column" [formGroup]="videoInfo">
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input formControlName="Title" type="text" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Url</mat-label>
+    <input formControlName="VideoUrl" type="text" matInput>
+  </mat-form-field>
+  <button mat-raised-button (click)="saveData()">ADD</button>
+</div>
