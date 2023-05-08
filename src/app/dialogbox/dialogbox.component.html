@@ -8,5 +8,6 @@
     <mat-label>Url</mat-label>
     <input formControlName="VideoUrl" type="text" matInput>
   </mat-form-field>
+  <input type="file" (change)="picked($event)">
   <button mat-raised-button (click)="saveData()">ADD</button>
 </div>
