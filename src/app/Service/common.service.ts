@@ -6,16 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
 
+  commonApiUrl: string = 'http://localhost:3000/videos';
+
   constructor(
     private http: HttpClient
   ) { }
 
   getData() {
-    return this.http.get<any>('http://localhost:3000/videos');
+    return this.http.get<any>(this.commonApiUrl);
   }
 
   postData(data: any) {
     console.log(data)
-    return this.http.post<any>('http://localhost:3000/videos', data);
+    return this.http.post<any>(this.commonApiUrl, data);
   }
 }
